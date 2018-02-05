@@ -9,11 +9,10 @@ const mongoose = require('mongoose');
 // const passport = require('passport');
 // const expressSession = require('express-session');
 // const User = require('./models/user');
-// const ENV = require('./app-env');
 // const findOrCreate = require('mongoose-findorcreate');
-
 // const index = require('./routes/index');
 const users = require('./routes/users');
+const ENV      = require('./env');
 
 // Middleware
 app.use(cookieParser());
@@ -23,10 +22,9 @@ app.use(cookieParser());
 // app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 // app.use('/', index);
 app.use('/api/v1/users', users);
-
+mongoose.connect(ENV.MONGODB_URI); 
 
 /**********
  * SERVER *
