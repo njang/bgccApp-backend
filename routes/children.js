@@ -3,20 +3,98 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.json({children: [
-	{
-		name: 'Jenny Lin',
-		dob: '2015-03-27',
-		emergencyContact: '9793820182',
-		type: 'child'
-	},
-	{
-		name: 'Jack Smith',
-		dob: '2014-09-12',
-		emergencyContact: '9792619276',
-		type: 'child'
-	}
-]});
+  res.json(
+  	{
+			"todos": [
+				{
+					"_id": "5a77e02f4485d300111c2b82",
+					"body": "Wash the dishes",
+					"priority": 4,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e02f4485d300111c2b83",
+					"body": "Vacuum hallway",
+					"priority": 3,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e02f4485d300111c2b84",
+					"body": "Gaze at the stars",
+					"priority": 5,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e02f4485d300111c2b86",
+					"body": "Work on WDI labs",
+					"priority": 1,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e02f4485d300111c2b85",
+					"body": "Buy nutritious groceries for the week",
+					"priority": 2,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e02f4485d300111c2b87",
+					"body": "Update resume with new skills",
+					"priority": 2,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e0304485d300111c2b88",
+					"body": "Plan to attend 3 meetup groups outside of school",
+					"priority": 8,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e0304485d300111c2b8b",
+					"body": "Get to know at least one UXDI or DSI student.",
+					"priority": 10,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e0304485d300111c2b89",
+					"body": "Update personal portfolio to reflect my own refactored class project",
+					"priority": 7,
+					"completed": false,
+					"__v": 0
+				},
+				{
+					"_id": "5a77e0304485d300111c2b8a",
+					"body": "Figure out how recursive function calling REALLY works.",
+					"priority": 9,
+					"completed": false,
+					"__v": 0
+				}
+			]
+		}
+  // 	{
+  // 		children: [
+		// 		// {
+		// 		// 	name: 'Jenny Lin',
+		// 		// 	dob: '2015-03-27',
+		// 		// 	emergencyContact: '9793820182',
+		// 		// 	type: 'child'
+		// 		// },
+		// 		{
+		// 			name: 'Jack Smith',
+		// 			dob: '2014-09-12',
+		// 			emergencyContact: '9792619276',
+		// 			type: 'child'
+		// 		}
+		// 	]
+		// }
+	);
 });
 
 module.exports = router;
