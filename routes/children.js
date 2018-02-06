@@ -76,24 +76,24 @@ router.get('/', function(req, res, next) {
 					"completed": false,
 					"__v": 0
 				}
+			],
+  		children: [
+				{
+					"_id": "5a77e02f4485d300111c2b85",
+					name: 'Jenny Lin',
+					dob: '2015-03-27',
+					emergencyContact: '9793820182',
+					type: 'child'
+				},
+				{
+					"_id": "5a77e0304485d300111c2b8a",
+					name: 'Jack Smith',
+					dob: '2014-09-12',
+					emergencyContact: '9792619276',
+					type: 'child'
+				}
 			]
 		}
-  // 	{
-  // 		children: [
-		// 		// {
-		// 		// 	name: 'Jenny Lin',
-		// 		// 	dob: '2015-03-27',
-		// 		// 	emergencyContact: '9793820182',
-		// 		// 	type: 'child'
-		// 		// },
-		// 		{
-		// 			name: 'Jack Smith',
-		// 			dob: '2014-09-12',
-		// 			emergencyContact: '9792619276',
-		// 			type: 'child'
-		// 		}
-		// 	]
-		// }
 	);
 });
 
