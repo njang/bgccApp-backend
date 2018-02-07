@@ -25,7 +25,10 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
   next();
 });
+
+// Connect to mongoDB
 mongoose.connect(ENV.MONGODB_URI);
+
 
 app.use('/api/v1/children', children);
 
