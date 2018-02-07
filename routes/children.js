@@ -1,7 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../models');
+const childController = require('../controllers/children');
 
+// Retrieve all children
+router.get('/', childController.showAll);
+
+// Retrieve a child with id
+router.get('/:Child_id', childController.showOne);
+
+// Add a new child to the database
+router.post('/', childController.add);
+
+// Update a child information
+router.put('/:Child_id', childController.update);
+
+// Remove a child from database by id
+router.delete('/:Child_id', childController.remove)
+
+module.exports = router;
+
+// Hard-coded seed data used during testing
 // /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.json(
@@ -97,46 +116,3 @@ const models = require('../models');
 // 		}
 // 	);
 // });
-
-// Retrieve all children
-router.get('/', (req, res) => {
-  models.Child.find({}, (err, children) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(children);
-  })
-})
-
-// Retrieve a child with id
-router.get('/:Child_id', (req, res) => {
-  models.Child.findById(req.params.Child_id, (err, child) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(child);
-  })
-})
-
-// Add a new child to the database
-router.post('/', (req, res) => {
-  let newChild = new models.Child(req.body);
-  newChild.save((err, newChildObject) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(newChildObject);
-  });
-})
-
-// Remove a child from database by id
-router.delete('/:Child_id', (req, res) => {
-  models.Child.remove({_id: req.params.Child_id}, (err, child) => {
-    if (err) {
-      res.send(err);
-    }
-    res.json(child);
-  })
-})
-
-module.exports = router;
