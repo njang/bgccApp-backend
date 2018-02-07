@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const ChildSchema = new Schema({
   name: String,
   dob: String,
-  phone: String,
+  emergencyContact: Number,
   type: String
 });
 
