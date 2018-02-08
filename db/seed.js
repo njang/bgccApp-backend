@@ -1,69 +1,117 @@
 // This file allows us to seed our application with data
 // Run `node seed.js` from the root of this project folder.
-const mongoose = require("mongoose");
-const db = require("../models");
+const mongoose = require('mongoose');
+const db = require('../models');
 
 var childrenList =[
 	{
-	  name: "Samantha Duncan",
+	  name: {
+	  	first: 'Samantha',
+	  	last: 'Duncan'
+	  },
 	  emergencyContact: 9793825018,
 	  dob: '2016-01-11',
-	  type: "child"
+	  icon: 0,
+	  type: 'child'
 	},{
-	  name: "Jonathan Ransom",
+	  name: {
+	  	first: 'Jonathan',
+	  	last: 'Ransom'
+	  },
 	  emergencyContact: 9795731839,
 	  dob: '2015-03-27',
-	  type: "child"
+	  icon: 1,
+	  type: 'child'
 	},{
-	  name: "Meghan Allen",
+	  name: {
+	  	first: 'Meghan',
+	  	last: 'Allen'
+	  },
 	  emergencyContact: 9792733752,
 	  dob: '2015-07-02',
-	  type: "child"
+	  icon: 2,
+	  type: 'child'
 	},{
-	  name: "Ross Fairbanks",
+	  name: {
+	  	first: 'Ross',
+	  	last: 'Fairbanks'
+	  },
 	  emergencyContact: 9792839103,
 	  dob: '2015-09-13',
-	  type: "child"
+	  icon: 3,
+	  type: 'child'
 	},{
-	  name: "Christopher Chen",
+	  name: {
+	  	first: 'Christopher',
+	  	last: 'Chen'
+	  },
 	  emergencyContact: 7132835909,
 	  dob: '2015-09-17',
-	  type: "child"
+	  icon: 4,
+	  type: 'child'
 	},{
-	  name: "Dustin Avery",
+	  name: {
+	  	first: 'Dustin',
+	  	last: 'Avery'
+	  },
 	  emergencyContact: 9792038738,
 	  dob: '2015-11-02',
-	  type: "child"
+	  icon: 5,
+	  type: 'child'
 	},{
-	  name: "Fabian Ros",
+	  name: {
+	  	first: 'Fabian',
+	  	last: 'Ros'
+	  },
 	  emergencyContact: 7132849083,
 	  dob: '2015-10-15',
-	  type: "child"
+	  icon: 6,
+	  type: 'child'
 	},{
-	  name: "Lauren Ramirez",
+	  name: {
+	  	first: 'Lauren',
+	  	last: 'Ramirez'
+	  },
 	  emergencyContact: 7138592038,
 	  dob: '2016-01-02',
-	  type: "child"
+	  icon: 7,
+	  type: 'child'
 	},{
-	  name: "Joshua Martinez",
+	  name: {
+	  	first: 'Joshua',
+	  	last: 'Martinez'
+	  },
 	  emergencyContact: 9364828102,
 	  dob: '2015-06-10',
-	  type: "child"
+	  icon: 8,
+	  type: 'child'
 	},{
-	  name: "Miguel Hernandez",
+	  name: {
+	  	first: 'Miguel',
+	  	last: 'Hernandez'
+	  },
 	  emergencyContact: 9798271038,
 	  dob: '2015-05-05',
-	  type: "child"
+	  icon: 9,
+	  type: 'child'
 	},{
-	  name: "Lindsey Velasco",
+	  name: {
+	  	first: 'Lindsey',
+	  	last: 'Velasco'
+	  },
 	  emergencyContact: 9369182793,
 	  dob: '2015-04-27',
-	  type: "child"
+	  icon: 10,
+	  type: 'child'
 	},{
-	  name: "Daniel Johnson",
+	  name: {
+	  	first: 'Daniel',
+	  	last: 'Johnson'
+	  },
 	  emergencyContact: 7132638390,
 	  dob: '2015-07-05',
-	  type: "child"
+	  icon: 11,
+	  type: 'child'
 	}
 ];
 
@@ -75,8 +123,8 @@ db.Child.remove({}, function(err, children){
 
     db.Child.create(childrenList, function(err, children){
       if (err) { return console.log('ERROR', err); }
-      console.log("All children:", children);
-      console.log("Created", children.length, "child object");
+      console.log('All children:', children);
+      console.log('Created', children.length, 'child object');
       process.exit();
     });
   }

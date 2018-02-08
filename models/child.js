@@ -3,9 +3,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ChildSchema = new Schema({
-  name: String,
+  name: {
+  	first: String,
+  	last: String
+  },
   dob: String,
   emergencyContact: Number,
+  icon: Number,
   type: String
 });
 
