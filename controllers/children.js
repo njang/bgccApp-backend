@@ -35,9 +35,9 @@ const showOne = (req, res) => {
 // Callback function to update one child by id
 const update = (req, res) => {
   Child.findOne({_id: req.params.Child_id}, (err, child) => {
-    child.name = req.body.name;
-    child.dob = req.body.dob;
-    child.emergencyContact = req.body.emergencyContact
+    child.name = req.body.body.name;
+    child.dob = req.body.body.dob;
+    child.emergencyContact = req.body.body.emergencyContact
     child.save((err, saved) => {
       if (err) {
         res.status(500).send(err);
