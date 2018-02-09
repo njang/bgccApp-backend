@@ -42,7 +42,7 @@ var childrenList =[
 	  type: 'child'
 	},{
 	  name: {
-	  	first: 'Christopher',
+	  	first: 'Chris',
 	  	last: 'Chen'
 	  },
 	  emergencyContact: 7132835909,
