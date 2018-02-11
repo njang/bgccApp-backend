@@ -15,8 +15,8 @@ const childrenList =[
 	  type: 'child'
 	},{
 	  name: {
-	  	first: 'Jonathan',
-	  	last: 'Ransom'
+	  	first: 'Leila',
+	  	last: 'Attar'
 	  },
 	  emergencyContact: 9795731839,
 	  dob: '2015-03-27',
@@ -24,8 +24,8 @@ const childrenList =[
 	  type: 'child'
 	},{
 	  name: {
-	  	first: 'Meghan',
-	  	last: 'Allen'
+	  	first: 'Suzuka',
+	  	last: 'Hasegawa'
 	  },
 	  emergencyContact: 9792733752,
 	  dob: '2015-07-02',
@@ -96,8 +96,8 @@ const childrenList =[
 	  type: 'child'
 	},{
 	  name: {
-	  	first: 'Lindsey',
-	  	last: 'Velasco'
+	  	first: 'Roshni',
+	  	last: 'Patel'
 	  },
 	  emergencyContact: 9369182793,
 	  dob: '2015-04-27',
@@ -105,8 +105,8 @@ const childrenList =[
 	  type: 'child'
 	},{
 	  name: {
-	  	first: 'Daniel',
-	  	last: 'Johnson'
+	  	first: 'Irfan',
+	  	last: 'Khan'
 	  },
 	  emergencyContact: 7132638390,
 	  dob: '2015-07-05',
@@ -124,31 +124,31 @@ db.Child.remove({}, (err, children) => {
     console.log('Success in clearing children database');
     db.Child.create(childrenList, (err, children) => {
       if (err) { return console.log('ERROR', err); }
-      // console.log('All children:', children);
+      console.log('All children:', children);
       console.log('Created', children.length, 'child objects');
       childrenIDs = children.map( (child) => { return child._id} )
-      generateDocuments(childrenIDs);
-      // process.exit();
+      // generateDocuments(childrenIDs);
+      process.exit();
     });
   }
 });
 
-db.Document.remove({}, (err, document) => {
-  if (err) {
-    console.log('Error occured in clearing document database',err);
-  } else {
-    console.log('Success in clearing children database');
-		db.Document.create(
-			{ type: 'document',
-		    template: 'template/eat',
-		    childID: '5a7f52d24d34686933dca084',
-		    date: '2/10/2018',
-		    meal: 'AM snack',
-		    amount: 'Some' 
-		  }
-		, (err, document))
-	}
-})
+// db.Document.remove({}, (err, document) => {
+//   if (err) {
+//     console.log('Error occured in clearing document database',err);
+//   } else {
+//     console.log('Success in clearing children database');
+// 		db.Document.create(
+// 			{ type: 'document',
+// 		    template: 'template/eat',
+// 		    childID: '5a7f52d24d34686933dca084',
+// 		    date: '2/10/2018',
+// 		    meal: 'AM snack',
+// 		    amount: 'Some' 
+// 		  }
+// 		, (err, document))
+// 	}
+// })
 
 // let documents = [];
 // const generateDocuments = (childIDs) => {
@@ -197,4 +197,3 @@ db.Document.remove({}, (err, document) => {
 // 	});
 // }
 
-// console.log(documents[0])
