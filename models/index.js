@@ -10,3 +10,4 @@ try {
 mongoose.connect(ENV.MONGODB_URI);
 
 module.exports.Child = require('./child');
+module.exports.Document = require('./document');

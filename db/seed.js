@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 const db = require('../models');
 
-var childrenList =[
+const childrenList =[
 	{
 	  name: {
 	  	first: 'Samantha',
@@ -115,17 +115,86 @@ var childrenList =[
 	}
 ];
 
-db.Child.remove({}, function(err, children){
-  if (err) {
-    console.log('Error occured in remove',err);
-  } else {
-    console.log('Success in remove');
+let childrenIDs = [];
 
-    db.Child.create(childrenList, function(err, children){
+db.Child.remove({}, (err, children) => {
+  if (err) {
+    console.log('Error occured in clearing children database',err);
+  } else {
+    console.log('Success in clearing children database');
+    db.Child.create(childrenList, (err, children) => {
       if (err) { return console.log('ERROR', err); }
-      console.log('All children:', children);
-      console.log('Created', children.length, 'child object');
-      process.exit();
+      // console.log('All children:', children);
+      console.log('Created', children.length, 'child objects');
+      childrenIDs = children.map( (child) => { return child._id} )
+      generateDocuments(childrenIDs);
+      // process.exit();
     });
   }
 });
+
+db.Document.remove({}, (err, document) => {
+  if (err) {
+    console.log('Error occured in clearing document database',err);
+  } else {
+    console.log('Success in clearing children database');
+		db.Document.create(
+			{ type: 'document',
+		    template: 'template/eat',
+		    childID: '5a7f52d24d34686933dca084',
+		    date: '2/10/2018',
+		    meal: 'AM snack',
+		    amount: 'Some' 
+		  }
+		, (err, document))
+	}
+})
+
+// let documents = [];
+// const generateDocuments = (childIDs) => {
+//   for (let i = 0; i < childIDs.length; i++) {
+//   	for (let j = 0; j < 3; j++) {
+// 	  	let eatTime;
+// 	  	switch(j) {
+// 				case 0: eatTime = 'AM snack'; break;
+// 				case 1: eatTime = 'PM snack'; break;
+// 				default: eatTime = 'lunch';
+// 			};
+// 			let eatAmount;
+// 			switch(Math.round(Math.random()*3)) {
+// 				case 0: eatAmount = 'All'; break;
+// 				case 1: eatAmount = 'Lots'; break;
+// 				case 2: eatAmount = 'Some'; break;
+// 				default: eatAmount = 'None';
+// 			}
+// 	  	documents.push({
+// 	  		type: 'document',
+// 	  		template: 'template/eat',
+// 	  		childID: childIDs[i],
+// 	  		date: ( new Date( Date.now() ) ).toLocaleDateString(),
+// 	  		meal: eatTime,
+// 	  		amount: eatAmount
+// 	  	})
+//   	}
+//   }
+//   console.log(documents);
+//   console.log('Remove proceeded');
+//   db.Document.remove({}, (err, documents) => {
+// 	  console.log('remove requested');
+// 	  if (err) {
+// 	    console.log('Error occured in clearing documents database',err);
+// 	  } else {
+// 	    console.log('Success in clearing documents database');
+
+// 	  	// console.log('Recording '+ documents.length +' meal logs');
+// 	   //  db.Document.create(documents, (err, documents) => {
+// 	   //    if (err) { return console.log('ERROR', err); }
+// 	   //    // console.log('All children:', children);
+// 	   //    console.log('Created', documents.length, 'document objects');
+// 	   //    process.exit();
+// 	   //  });
+// 	  }
+// 	});
+// }
+
+// console.log(documents[0])
