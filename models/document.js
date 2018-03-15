@@ -6,7 +6,8 @@ const DocumentSchema = new Schema({
   type: String,
   childID: String,
   date: String,
-  template: String
+  template: String,
+  rest: String
 });
 
 module.exports = mongoose.model('Document', DocumentSchema);
